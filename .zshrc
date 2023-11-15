@@ -104,8 +104,11 @@ export PATH=$PATH:~/.dotfiles/bin
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vim="nvim"
+# alias vim="nvim"
 alias neorg="cd ~/Neorg && nvim ."
+alias pip="pip3"
+alias python="python3"
+alias rgf='rg --files | rg'
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -116,3 +119,5 @@ export BAT_CONFIG_PATH="~/.bat"
 
 eval $(thefuck --alias)
 eval "$(zoxide init zsh)"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
