@@ -73,7 +73,7 @@ ZSH_THEME="robbyrussell"
 plugins=(
     git
     zsh-autosuggestions
-    zsh-vi-mode
+    # zsh-vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
