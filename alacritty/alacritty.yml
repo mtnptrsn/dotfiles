@@ -1,24 +1,15 @@
-# Configuration for Alacritty, the GPU enhanced terminal emulator.
-
 font:
-  # The size to use.
   size: 17
-  # The normal (roman) font face to use.
   normal:
     family: FiraCode Nerd Font
-    # Style can be specified to pick a specific face.
     style: Regular
 
-  # The bold font face
   bold:
     family: FiraCode Nerd Font
-    # Style can be specified to pick a specific face.
     style: Bold
 
-  # The italic font face
   italic:
     family: FiraCode Nerd Font
-    # Style can be specified to pick a specific face.
     style: Italic
 
   offset:
@@ -28,12 +19,10 @@ font:
     y: 6
 
 colors:
-  # Default colors
   primary:
     background: "0x303030"
     foreground: "0xfff1f3"
 
-  # Normal colors
   normal:
     black: "0x2c2525"
     red: "0xfd6883"
@@ -44,7 +33,6 @@ colors:
     cyan: "0x85dacc"
     white: "0xfff1f3"
 
-  # Bright colors
   bright:
     black: "0x72696a"
     red: "0xfd6883"

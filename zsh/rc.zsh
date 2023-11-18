@@ -1,3 +1,9 @@
+source_if_exists () {
+    if test -r "$1"; then
+        source "$1"
+    fi
+}
+
 export PATH=$PATH:$HOME/dotfiles/bin
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -8,13 +14,10 @@ plugins=(
     zsh-autosuggestions
 )
 
-source $ZSH/oh-my-zsh.sh
-source $HOME/.env.sh
-
-alias vim="nvim"
-alias pip="pip3"
-alias python="python3"
-alias rgf='rg --files | rg'
+source_if_exists $HOME/.env.sh
+source_if_exists $ZSH/oh-my-zsh.sh
+source_if_exists $DOTFILES/zsh/aliases.zsh
+source_if_exists $DOTFILES/zsh/git.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
