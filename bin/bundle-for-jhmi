@@ -1,4 +1,0 @@
-source ~/.nvm/nvm.sh
-nvm use
-npm run build
-tar -czvf /tmp/build.tar.gz ./build
