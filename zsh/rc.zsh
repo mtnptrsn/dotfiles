@@ -19,6 +19,10 @@ source_if_exists $ZSH/oh-my-zsh.sh
 source_if_exists $DOTFILES/zsh/aliases.zsh
 source_if_exists $DOTFILES/zsh/git.zsh
 
+precmd() {
+    source $DOTFILES/zsh/aliases.zsh
+}
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
