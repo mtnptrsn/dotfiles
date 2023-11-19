@@ -4,7 +4,7 @@ source_if_exists () {
     fi
 }
 
-export PATH=$PATH:$HOME/dotfiles/bin
+export PATH=$PATH:$HOME/dotfiles/scripts
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
