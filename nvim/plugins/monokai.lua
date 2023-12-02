@@ -19,10 +19,10 @@ return {
     },
     override = function()
       return {
-        DiffChange = { bg = "#30303F" },
-        DiffText = { bg = "#30307F" },
-        DiffAdd = { bg = "#303830" },
-        DiffDelete = { bg = "#383030" },
+        DiffChange = { bg = "#3b3b2e" },
+        DiffText = { bg = "#4f4f29" },
+        DiffAdd = { bg = "#2e362e" },
+        DiffDelete = { bg = "#452b2b" },
       }
     end,
   },

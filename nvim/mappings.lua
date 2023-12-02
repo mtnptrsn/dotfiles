@@ -35,10 +35,18 @@ return {
     ["<Tab>"] = { "<cmd>bnext<cr>" },
     ["<S-Tab>"] = { "<cmd>bprev<cr>" },
 
-    ["<leader>gg"] = {
-      "<cmd>Git<cr><C-w><C-o>",
-      desc = "Vim Fugitive",
+    ["<leader>gd"] = {
+      function()
+        if next(require("diffview.lib").views) == nil then
+          vim.cmd "DiffviewOpen"
+        else
+          vim.cmd "DiffviewClose"
+        end
+      end,
+      desc = "Git Diff",
     },
+
+    ["<leader>gg"] = { "<cmd>G<cr>", desc = "Fugitive" },
 
     ["<leader>?"] = {
       "<cmd>ChatGPT<cr>",
