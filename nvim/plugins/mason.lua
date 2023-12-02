@@ -24,6 +24,7 @@ return {
         "stylua",
         "eslint",
         "rust-analyzer",
+        "rustfmt",
       })
     end,
   },
