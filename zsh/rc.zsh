@@ -5,6 +5,7 @@ source_if_exists () {
 }
 
 export PATH=$PATH:$HOME/dotfiles/scripts
+export PATH=$PATH:$HOME/.cargo/bin/
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
