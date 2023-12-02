@@ -100,4 +100,7 @@ return {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
   },
+  v = {
+    ["<leader>gh"] = { ":Gitsigns reset_hunk<cr>" },
+  },
 }
