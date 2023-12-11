@@ -2,7 +2,7 @@ window:
   startup_mode: SimpleFullScreen
 
 font:
-  size: 17
+  size: 16
   normal:
     family: FiraCode Nerd Font
     style: Regular
@@ -16,10 +16,10 @@ font:
     style: Italic
 
   offset:
-    y: 10
+    y: 14
 
   glyph_offset:
-    y: 6
+    y: 7
 
 colors:
   primary:
