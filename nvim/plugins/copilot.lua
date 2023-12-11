@@ -9,12 +9,12 @@ return {
         enabled = true,
         auto_trigger = true,
         keymap = {
-          accept = "<Tab>",
-          close = "<Esc>",
-          next = "<C-J>",
-          prev = "<C-K>",
-          select = "<CR>",
-          dismiss = "<C-X>",
+          accept = "<C-A>",
+          -- close = "<Esc>",
+          -- next = "<C-J>",
+          -- prev = "<C-K>",
+          -- select = "<CR>",
+          -- dismiss = "<C-X>",
         },
       },
       panel = {
