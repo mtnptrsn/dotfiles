@@ -9,6 +9,7 @@ source_if_exists $HOME/.env.sh
 export PATH=$PATH:$DOTFILES/scripts
 export PATH=$PATH:$HOME/.cargo/bin/
 export ZSH="$HOME/.oh-my-zsh"
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
 ZSH_THEME="robbyrussell"
 
