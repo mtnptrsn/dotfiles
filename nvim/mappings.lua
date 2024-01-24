@@ -86,6 +86,7 @@ return {
       "<cmd>Neorg return<cr>",
     },
     ["<leader>o"] = false,
+    ["<leader>h"] = false,
     ["n"] = {
       "nzz",
     },
