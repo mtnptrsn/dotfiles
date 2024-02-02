@@ -5,6 +5,7 @@ return {
     opts.pickers = {
       live_grep = {
         additional_args = function() return { "--hidden" } end,
+        glob_pattern = "!.git",
       },
       find_files = {
         find_command = { "rg", "--files", "--hidden", "--glob", "!.git" },
