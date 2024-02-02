@@ -1,5 +1,17 @@
 return {
   "nvim-telescope/telescope.nvim",
+
+  opts = function(_, opts)
+    opts.pickers = {
+      live_grep = {
+        additional_args = function() return { "--hidden" } end,
+      },
+      find_files = {
+        find_command = { "rg", "--files", "--hidden", "--glob", "!.git" },
+      },
+    }
+  end,
+
   -- install fzf native
   dependencies = {
     {
