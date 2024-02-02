@@ -1,0 +1,26 @@
+#!/usr/bin/osascript
+
+on run argv
+    if (count of argv) is not equal to 3 then
+        return "Usage: script.scpt <application> <width> <height>"
+    end if    
+    set theApp to item 1 of argv
+    set appWidth to item 2 of argv
+    set appHeight to item 3 of argv    
+    try
+        set appWidth to appWidth as number
+        set appHeight to appHeight as number
+    on error
+        return "Width and height must be numbers."
+    end try    
+    tell application "System Events" to tell application process theApp
+        try
+            tell window 1
+                set position to {50, 50}
+                set size to {appWidth, appHeight}
+            end tell
+        on error errMsg
+            return "Error: " & errMsg
+        end try
+    end tell
+end run

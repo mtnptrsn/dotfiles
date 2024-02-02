@@ -8,3 +8,5 @@ alias docker-ps-watch="watch 'docker ps --format \"table {{.ID}}\t{{.Names}}\t{{
 alias home="cd $HOME"
 alias neorg="cd $HOME/Neorg && nvim ."
 alias dotfiles="cd $HOME/.dotfiles && nvim ."
+alias p="pnpm"
+alias ola-nvim="NVIM_APPNAME=ola-nvim nvim"
