@@ -69,7 +69,9 @@ return {
       "<cmd>Gitsigns prev_hunk<cr>",
       desc = "Previous git hunk",
     },
-
+    ["<leader>ojp"] = {
+      "<cmd>Neorg journal yesterday<cr>",
+    },
     ["<leader>ojj"] = {
       "<cmd>Neorg journal today<cr>",
     },
