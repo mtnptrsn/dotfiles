@@ -48,11 +48,6 @@ return {
 
     ["<leader>gg"] = { "<cmd>G<cr>", desc = "Fugitive" },
 
-    ["<leader>?"] = {
-      "<cmd>ChatGPT<cr>",
-      desc = "ChatGPT",
-    },
-
     ["<leader>lp"] = {
       "<cmd>lua vim.lsp.buf.hover()<cr>",
     },
