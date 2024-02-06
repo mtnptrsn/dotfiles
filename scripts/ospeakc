@@ -1,0 +1,25 @@
+#!/bin/bash
+# The input string
+if [ $# -gt 0 ]; then
+    # The input string is the first command-line argument
+    input_string=$1
+else
+    # No command-line argument, read the input string from stdin
+    input_string=$(cat)
+fi
+
+# Maximum chunk size
+max_length=2096
+# The current position in the string
+current_position=0
+# The length of the string
+string_length=${#input_string}
+# Loop through the string and extract chunks of max_length
+while [ $current_position -lt $string_length ]; do
+    # Extract a substring of max_length starting at current_position
+    chunk=${input_string:$current_position:$max_length}
+    echo "$chunk"
+    ospeak "$chunk"
+    # Increment the current_position by max_length
+    ((current_position += max_length))
+done
