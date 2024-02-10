@@ -18,8 +18,8 @@ string_length=${#input_string}
 while [ $current_position -lt $string_length ]; do
     # Extract a substring of max_length starting at current_position
     chunk=${input_string:$current_position:$max_length}
-    echo "$chunk"
-    ospeak "$chunk"
+    echo "\"$chunk\""
+    ospeak "\"$chunk\""
     # Increment the current_position by max_length
     ((current_position += max_length))
 done
