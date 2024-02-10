@@ -82,6 +82,9 @@ return {
     ["<leader>or"] = {
       "<cmd>Neorg return<cr>",
     },
+    ["<leader>os"] = {
+      "<cmd>!sync-neorg-notes<cr>",
+    },
     ["<leader>o"] = false,
     ["<leader>h"] = false,
     ["n"] = {

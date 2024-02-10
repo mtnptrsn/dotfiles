@@ -20,6 +20,7 @@ return {
 
     map("v", "<leader>?e", "<cmd>ChatGPTRun explain_code<cr>", { noremap = true, silent = true })
     map("v", "<leader>?g", "<cmd>ChatGPTRun grammar_correction<cr>", { noremap = true, silent = true })
+    map("v", "<leader>?i", "<cmd>ChatGPTEditWithInstructions<cr>", { noremap = true, silent = true })
   end,
   dependencies = {
     "MunifTanjim/nui.nvim",
