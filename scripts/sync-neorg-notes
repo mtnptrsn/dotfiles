@@ -1,3 +1,21 @@
 #!/bin/sh
 
-git add . && git commit -m "Update - $(date)" && git push
+git fetch
+
+# if there are changes, stash current changes and pull
+if [ $(git rev-parse HEAD) != $(git rev-parse @{u}) ]; then
+  git stash
+  git pull
+  git stash pop
+
+  # if there are conflicts, abort
+  if [ -n "$(git status --porcelain)" ]; then
+    echo "There are conflicts. Aborting."
+    # kill the process
+    exit 1
+  fi
+fi
+
+git add .
+git commit -m "Update - $(date)"
+git push
