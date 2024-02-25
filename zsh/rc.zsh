@@ -8,9 +8,9 @@ source_if_exists $HOME/.env.sh
 
 export PATH=$PATH:$DOTFILES/scripts
 export PATH=$PATH:$HOME/.cargo/bin/
-export PATH="$PATH:/Users/mtnptrsn/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 export ZSH="$HOME/.oh-my-zsh"
-export DOCKER_DEFAULT_PLATFORM=linux/amd64
+export TERM=screen-256color
 
 ZSH_THEME="robbyrussell"
 
@@ -31,5 +31,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ $(uname) == "Darwin" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 eval "$(zoxide init zsh)"
