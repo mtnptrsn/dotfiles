@@ -1,0 +1,29 @@
+#!/bin/bash
+# Check if an argument is provided
+USER_QUESTION="$1"
+if [ -p /dev/stdin ]; then
+    USER_QUESTION=$(cat)
+fi
+# Prepare the JSON data with the user's question
+read -r -d '' DATA <<EOF
+{
+  "model": "gpt-4-turbo-preview",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a friendly, helpful assistant."
+    },
+    {
+      "role": "user",
+      "content": "$USER_QUESTION"
+    }
+  ]
+}
+EOF
+# Call the OpenAI API and extract the response
+RESPONSE=$(curl -s "https://api.openai.com/v1/chat/completions" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -d "$DATA")
+
+echo $(echo $RESPONSE | jq -r '.choices[0].message.content')

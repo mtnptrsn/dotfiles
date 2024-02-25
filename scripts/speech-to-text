@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Check if an argument is provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <path_to_mp3_file>"
+    exit 1
+fi
+MP3_FILE=$1
+OPENAI_API_URL="https://api.openai.com/v1/audio/transcriptions"
+# Prepare the headers for the HTTP POST request
+HEADERS=(
+    -H "Authorization: Bearer $OPENAI_API_KEY"
+)
+# Perform the HTTP POST request to transcribe the audio file
+RESPONSE=$(curl -s "${HEADERS[@]}" -X POST "$OPENAI_API_URL" \
+    -F "file=@$MP3_FILE" \
+    -F "model=whisper-1" \
+    -F "response_format=text")
+
+# Extract the transcription text from the response
+# Output the transcription
+echo $RESPONSE
