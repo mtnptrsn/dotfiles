@@ -1,8 +1,7 @@
 #!/bin/bash
+set -e
 DOTFILES=$(pwd -P)
 
-set -e
-echo ''
 info () {
   printf "\r  [ \033[00;34m..\033[0m ] $1\n"
 }
@@ -101,7 +100,7 @@ install_oh_my_zsh () {
     --unattended
 
   # install plugins
-  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 }
 
 install_essential_packages
