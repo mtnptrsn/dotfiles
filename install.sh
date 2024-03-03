@@ -64,6 +64,7 @@ install_essential_packages () {
     fzf \
     ripgrep \
     clang \
+    exa \
     htop
 }
 
