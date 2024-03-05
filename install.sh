@@ -27,7 +27,7 @@ link_file () {
   success "linked $src to $dst"
 }
 install_dotfiles () {
-  info 'installing dotfiles'
+  info 'installing dotfiles...'
   find -H "$DOTFILES" -maxdepth 2 -name 'links.prop' -not -path '*.git*' | while read -r linkfile; do
     while read -r line; do
       local src dst dir
@@ -38,18 +38,22 @@ install_dotfiles () {
       link_file "$src" "$dst"
     done < "$linkfile"
   done
+  success 'dotfiles installed'
 }
 
 create_env_file () {
-    if test -f "$HOME/.env.sh"; then
-        success "$HOME/.env.sh file already exists, skipping"
-    else
-        echo "export DOTFILES=$DOTFILES" > "$HOME/.env.sh"
-        success 'created ~/.env.sh'
-    fi
+  info 'creating ~/.env.sh'
+  if test -f "$HOME/.env.sh"; then
+      success "$HOME/.env.sh file already exists, skipping"
+  else
+      echo "export DOTFILES=$DOTFILES" > "$HOME/.env.sh"
+      success 'created ~/.env.sh'
+  fi
+  success 'created ~/.env.sh'
 }
 
 install_essential_packages () {
+  info 'installing essential packages...'
   sudo apt-get update
   sudo apt-get install -y \
     curl \
@@ -65,18 +69,24 @@ install_essential_packages () {
     clang \
     exa \
     htop
+  success 'essential packages installed'
 }
 
 install_nodejs () {
+  info 'installing nodejs...'
   curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash
   sudo apt-get install -y nodejs
+  success 'nodejs installed'
 }
 
 install_zoxide () {
+  info 'installing zoxide...'
   curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+  success 'zoxide installed'
 }
 
 install_neovim () {
+  info 'installing neovim...'
   CURRENT_DIR=$(pwd)
   cd /tmp
   git clone --branch v0.9.5 --depth 1 https://github.com/neovim/neovim.git
@@ -85,22 +95,26 @@ install_neovim () {
   sudo make install
   cd /tmp && rm -rf neovim
   cd $CURRENT_DIR
-  git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+  git clone --depth 3 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+  success 'neovim installed'
 }
 
 install_zsh () {
+  info 'installing zsh...'
   sudo apt-get install -y zsh
   touch ~/.zshrc
+  success 'zsh installed'
 }
 
 install_oh_my_zsh () {
+  info 'installing oh-my-zsh...'
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" \
     --keep-zshrc \
     --skipchsh \
     --unattended
-
   # install plugins
   git clone https://github.com/zsh-users/zsh-autosuggestions ${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+  success 'oh-my-zsh installed'
 }
 
 install_essential_packages
