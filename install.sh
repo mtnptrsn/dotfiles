@@ -124,6 +124,6 @@ install_zoxide
 install_neovim
 install_dotfiles
 create_env_file
-install_oh_my_zsh
+# install_oh_my_zsh
 echo ''
 success 'All installed!'
