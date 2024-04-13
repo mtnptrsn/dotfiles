@@ -1,5 +1,5 @@
 return {
-  "mtnptrsn/monokai-pro.nvim",
+  "loctvl842/monokai-pro.nvim",
   -- dir = "~/Code/monokai-pro.nvim",
   lazy = true,
   priority = 1000, -- Ensure it loads first

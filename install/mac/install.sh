@@ -4,7 +4,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Neovim
 brew install neovim
-git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 
 # Fonts
 brew tap homebrew/cask-fonts

@@ -9,7 +9,7 @@ source_if_exists $HOME/.env.sh
 export PATH=$PATH:$DOTFILES/scripts
 export PATH=$PATH:$HOME/.cargo/bin/
 export PATH="$PATH:$HOME/.local/bin"
-# export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export TERM=screen-256color
 # not sure why I need to do this, where is this env being set?
 unset DOCKER_DEFAULT_PLATFORM
@@ -21,7 +21,7 @@ plugins=(
     zsh-autosuggestions
 )
 
-# source_if_exists $ZSH/oh-my-zsh.sh
+source_if_exists $ZSH/oh-my-zsh.sh
 source_if_exists $DOTFILES/zsh/aliases.zsh
 source_if_exists $DOTFILES/zsh/git.zsh
 
