@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
 -- Configuration documentation can be found with `:h astrolsp`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -12,8 +10,8 @@ return {
   opts = {
     -- Configuration table of features provided by AstroLSP
     features = {
-      autoformat = true, -- enable or disable auto formatting on start
-      codelens = true, -- enable/disable codelens refresh on start
+      autoformat = true,   -- enable or disable auto formatting on start
+      codelens = true,     -- enable/disable codelens refresh on start
       inlay_hints = false, -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
     },
@@ -72,19 +70,28 @@ return {
           event = { "CursorHold", "CursorHoldI" },
           -- the rest of the autocmd options (:h nvim_create_autocmd)
           desc = "Document Highlighting",
-          callback = function() vim.lsp.buf.document_highlight() end,
+          callback = function()
+            vim.lsp.buf.document_highlight()
+          end,
         },
         {
           event = { "CursorMoved", "CursorMovedI", "BufLeave" },
           desc = "Document Highlighting Clear",
-          callback = function() vim.lsp.buf.clear_references() end,
+          callback = function()
+            vim.lsp.buf.clear_references()
+          end,
         },
       },
     },
     -- mappings to be set up on attaching of a language server
     mappings = {
       n = {
-        gl = { function() vim.diagnostic.open_float() end, desc = "Hover diagnostics" },
+        gl = {
+          function()
+            vim.diagnostic.open_float()
+          end,
+          desc = "Hover diagnostics",
+        },
         -- a `cond` key can provided as the string of a server capability to be required to attach, or a function with `client` and `bufnr` parameters from the `on_attach` that returns a boolean
         -- gD = {
         --   function() vim.lsp.buf.declaration() end,

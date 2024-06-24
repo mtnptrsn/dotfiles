@@ -24,6 +24,7 @@ plugins=(
 source_if_exists $ZSH/oh-my-zsh.sh
 source_if_exists $DOTFILES/zsh/aliases.zsh
 source_if_exists $DOTFILES/zsh/git.zsh
+source_if_exists $DOTFILES/zsh/just.zsh
 
 precmd() {
     source $DOTFILES/zsh/aliases.zsh
