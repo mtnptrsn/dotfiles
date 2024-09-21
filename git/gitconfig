@@ -1,0 +1,7 @@
+[user]
+	email = mtnptrsn@gmail.com
+	name = Mårten Pettersson
+[core]
+  editor = nvim
+[push]
+	autoSetupRemote = true
