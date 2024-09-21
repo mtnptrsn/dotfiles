@@ -1,0 +1,1 @@
+$DOTFILES/nix/config.nix=$HOME/.config/nixpkgs/config.nix

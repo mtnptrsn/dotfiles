@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export DOTFILES=$(git rev-parse --show-toplevel)
+$DOTFILES/install/create_symlinks.sh
+nix-env -iA nixpkgs.myPackages
