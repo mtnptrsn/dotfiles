@@ -4,24 +4,13 @@
       name = "my-packages";
       paths = [
         zsh
-        oh-my-zsh
+        zinit
         neovim
         ripgrep
         fzf
         bat
         zoxide
         eza
-      ];
-    };
-  };
-
-  programs.zsh = {
-    enable = true;
-    ohMyZsh = {
-      enable = true;
-      plugins = [
-        "git"
-        "zsh-autosuggestions"
       ];
     };
   };
