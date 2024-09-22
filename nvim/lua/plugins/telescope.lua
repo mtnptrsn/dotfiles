@@ -1,6 +1,18 @@
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 return {
   "nvim-telescope/telescope.nvim",
   opts = function(_, opts)
+    -- Import necessary actions
+    local actions = require "telescope.actions"
+
+    -- Update the default mappings to accommodate tab and shift+tab navigation
+    opts.defaults.mappings.i = {
+      -- Insert mode mappings for navigation
+      ["<Tab>"] = actions.move_selection_next, -- Move to the next item
+      ["<S-Tab>"] = actions.move_selection_previous, -- Move to the previous item
+    }
+
     opts.pickers = {
       live_grep = {
         additional_args = function() return { "--hidden" } end,
@@ -16,25 +28,6 @@ return {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "make",
       config = function() require("telescope").load_extension "fzf" end,
-    },
-    {
-      "jvgrootveld/telescope-zoxide",
-      config = function() require("telescope").load_extension "zoxide" end,
-    },
-    -- For trouble.providers.telescope
-    "folke/trouble.nvim",
-  },
-  keys = {
-    -- This is using b because it used to be fzf's :Buffers
-    {
-      "<leader>r",
-      "<cmd>Telescope oldfiles<cr>",
-      desc = "Recent",
-    },
-    {
-      "<leader>z",
-      function() require("telescope").extensions.zoxide.list {} end,
-      desc = "Zoxide",
     },
   },
 }

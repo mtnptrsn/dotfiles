@@ -11,20 +11,12 @@ export PATH=$PATH:$HOME/.cargo/bin/
 export PATH="$PATH:$HOME/.local/bin"
 # export ZSH="$HOME/.oh-my-zsh"
 export TERM=screen-256color
-# not sure why I need to do this, where is this env being set?
 unset DOCKER_DEFAULT_PLATFORM
 
 ZSH_THEME="robbyrussell"
 
-# plugins=(
-#     git
-#     zsh-autosuggestions
-# )
-
-# source_if_exists $ZSH/oh-my-zsh.sh
 source_if_exists $DOTFILES/zsh/aliases.zsh
 source_if_exists $DOTFILES/zsh/git.zsh
-# source_if_exists $DOTFILES/zsh/just.zsh
 
 precmd() {
     source $DOTFILES/zsh/aliases.zsh
