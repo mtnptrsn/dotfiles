@@ -11,6 +11,7 @@
         bat
         zoxide
         eza
+        nodejs_20
       ];
     };
   };
