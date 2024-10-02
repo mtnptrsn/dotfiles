@@ -1,0 +1,65 @@
+#!/bin/bash
+
+# A bash script that helps me create notes in my second brain
+# based on my "blog" script
+
+# function to prompt the user for a filename
+get_filename() {
+	read -p "Enter a filename: " filename
+	echo "$filename"
+}
+
+# function to convert the filename to a title format
+convert_to_title() {
+	local filename="$1"
+	# Remove the dashes, replace them with spaces, and capitalize each word
+	local title
+	title=$(echo "$filename" | awk '{ gsub("-"," "); for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2)); print }')
+	echo "$title"
+}
+
+# function to create and open a file in the specified directory
+open_file() {
+	local filename="$1"  # Add this line to make sure the filename variable is local to this function
+	local dir="$2"  # Make the directory a variable
+
+	# Cd into the directory
+	cd "$dir" || exit
+
+	# Check if the file already exists
+	if [ -f "$filename.md" ]; then
+		# Open the existing file in Neovim
+		nvim '+ normal ggzzi' "$filename.md"
+	else
+		# Convert the filename to a title
+		title=$(convert_to_title "$filename")
+		# Create the file, add initial content, and open it in Neovim
+		echo -e "# ${title}\n\nLinks:\n" > "$filename.md"
+		nvim '+ normal ggzzi' "$filename.md"
+	fi
+}
+
+# Prompt the user if no filename is provided
+if [[ $# -eq 0 ]]; then
+	filename=$(get_filename)
+fi
+
+# if more than one argument is given, print error message and stop script
+if [[ $# -gt 1 ]]; then
+	echo "Please provide only one filename separated by dashes, without .md extension."
+	echo "Example: zet my-new-note"
+	exit 1
+fi
+
+# set filename to the argument given to the script
+if [[ $# -eq 1 ]]; then
+	filename=$1
+fi
+
+# Ensure OBSIDIAN environment variable is set
+if [ -z "$OBSIDIAN" ]; then
+    echo "Error: OBSIDIAN environment variable is not set."
+    exit 1
+fi
+
+open_file "$filename" "$OBSIDIAN/0-inbox"

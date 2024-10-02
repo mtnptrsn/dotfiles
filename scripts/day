@@ -1,0 +1,71 @@
+#!/bin/bash
+
+today=$(date +"%Y-%m-%d")
+tomorrow=$(date -v +1d +"%Y-%m-%d")
+yesterday=$(date -v -1d +"%Y-%m-%d")
+base_dir="$OBSIDIAN/2-daily-notes"
+year=$(date +"%Y")
+month=$(date +"%m")
+dir_path="$base_dir/$year/$month"
+
+cd "$OBSIDIAN" || exit
+
+new_note() {
+    local dir="$1"
+    local file="$dir_path/$today-$dir.md"
+
+    mkdir -p "$dir_path"
+    touch "$file"
+
+    if [ "$dir" == "private" ]; then
+        # Format the file with the private daily template
+        cat <<EOF >"$file"
+# $today
+
+[[$yesterday-$dir.md]] - [[$tomorrow-$dir.md]]
+
+## Log
+EOF
+
+    elif [ "$dir" == "work" ]; then
+        # Format the file with the work daily template
+        cat <<EOF >"$file"
+# $today
+
+[[$yesterday-$dir.md]] - [[$tomorrow-$dir.md]]
+
+## Log
+EOF
+
+    else
+        echo "Invalid template type."
+        exit 1
+    fi
+
+    # Open the new note in nvim
+    nvim '+ normal Gzzo' "$file"
+}
+
+# Check if an argument is provided
+if [ -n "$1" ]; then
+    template=$1
+else
+    # Prompt the user for the type of note
+    echo "Which template would you like to use? (private/work): "
+    read -r template
+fi
+
+# Validate the template type
+if [[ "$template" != "private" && "$template" != "work" ]]; then
+    echo "Invalid template type."
+    exit 1
+fi
+
+# If the daily note does not exist, create a new one with the selected template.
+if [ ! -f "$dir_path/$today-$template.md" ]; then
+    echo "File does not exist, creating new daily note."
+    new_note "$template"
+else
+    # If the file already exists, open it in nvim
+    nvim '+ normal Gzzo' "$dir_path/$today-$template.md"
+fi
