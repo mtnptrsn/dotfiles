@@ -10,14 +10,15 @@ return {
 		-- overrides `require("mason-lspconfig").setup(...)`
 		opts = {
 			ensure_installed = {
-				"lua_ls", -- Existing entry
+				"lua_ls",  -- Existing entry
 				"pyright", -- Python
-				"ts_ls", -- TypeScript and JavaScript
-				"eslint", -- ESLint for JavaScript/TypeScript linting
-				"jsonls", -- JSON files
-				"html", -- HTML files
-				"cssls", -- CSS files
+				"ts_ls",   -- TypeScript and JavaScript
+				"eslint",  -- ESLint for JavaScript/TypeScript linting
+				"jsonls",  -- JSON files
+				"html",    -- HTML files
+				"cssls",   -- CSS files
 				"tailwindcss", -- Tailwind CSS files
+				"marksman",
 			},
 		},
 	},
