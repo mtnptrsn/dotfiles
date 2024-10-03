@@ -62,4 +62,4 @@ if [ -z "$OBSIDIAN" ]; then
     exit 1
 fi
 
-open_file "$filename" "$OBSIDIAN/0-inbox"
+open_file "$filename" "$OBSIDIAN/inbox"
