@@ -23,6 +23,7 @@
             pkgs.rustup
             pkgs.ripgrep
             pkgs.fzf
+            pkgs.obsidian
             pkgs.fira-code
           ];
         fonts.packages = [
@@ -34,6 +35,8 @@
             "google-chrome"
             "discord"
             "1password"
+            "spotify"
+            "alfred"
           ];
           onActivation.cleanup = "zap";
           onActivation.autoUpdate = true;
