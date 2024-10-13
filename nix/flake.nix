@@ -15,7 +15,6 @@
             pkgs.neovim
             pkgs.tmux
             pkgs.mkalias
-            pkgs.alacritty
             pkgs.git
             pkgs.eza
             pkgs.nodejs_20
@@ -23,7 +22,6 @@
             pkgs.rustup
             pkgs.ripgrep
             pkgs.fzf
-            pkgs.obsidian
             pkgs.fira-code
           ];
         fonts.packages = [
@@ -37,6 +35,8 @@
             "1password"
             "spotify"
             "alfred"
+            "alacritty"
+            "obsidian"
           ];
           onActivation.cleanup = "zap";
           onActivation.autoUpdate = true;
