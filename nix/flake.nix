@@ -13,7 +13,7 @@
         environment.systemPackages =
           [
             pkgs.neovim
-            pkgs.tmux
+            # pkgs.tmux
             pkgs.mkalias
             pkgs.git
             pkgs.eza
@@ -23,6 +23,7 @@
             pkgs.ripgrep
             pkgs.fzf
             pkgs.fira-code
+            pkgs.pipx
           ];
         fonts.packages = [
           (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; })
@@ -37,6 +38,9 @@
             "alfred"
             "alacritty"
             "obsidian"
+            "docker"
+            "trezor-suite"
+            "transmission"
           ];
           onActivation.cleanup = "zap";
           onActivation.autoUpdate = true;
@@ -45,6 +49,9 @@
         services.nix-daemon.enable = true;
         nix.settings.experimental-features = "nix-command flakes";
         programs.zsh.enable = true; # default shell on catalina
+        programs.tmux = {
+	        enable = true;
+        };
         system.configurationRevision = self.rev or self.dirtyRev or null;
         system.stateVersion = 5;
         nixpkgs.hostPlatform = "aarch64-darwin";

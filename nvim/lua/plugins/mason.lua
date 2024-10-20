@@ -19,6 +19,7 @@ return {
 				"cssls",   -- CSS files
 				"tailwindcss", -- Tailwind CSS files
 				"marksman",
+				"clangd",
 			},
 		},
 	},
